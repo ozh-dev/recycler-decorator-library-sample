@@ -1,9 +1,10 @@
-package com.ozh.bunchdecorator.lib.decorators
+package com.ozh.bunchdecorator.lib.decorators.deprecated
 
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.ozh.bunchdecorator.lib.decorators.deprecated.DrawManager
 
 class LinearItemsDecoration(var drawOver: Boolean = false) : RecyclerView.ItemDecoration() {
 

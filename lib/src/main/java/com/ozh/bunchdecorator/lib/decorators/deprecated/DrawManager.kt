@@ -1,10 +1,12 @@
-package com.ozh.bunchdecorator.lib.decorators
+package com.ozh.bunchdecorator.lib.decorators.deprecated
 
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.ozh.bunchdecorator.lib.decorators.Rules
+import com.ozh.bunchdecorator.lib.decorators.UNDEFINE_VIEW_HOLDER
 
 class DrawManager {
 
@@ -104,8 +106,8 @@ class DrawManager {
 
     private fun drawHorizontal() {
 
-
     }
+
     private inline fun forEach(
         recyclerView: RecyclerView,
         action: (view: View, viewHolder: RecyclerView.ViewHolder, nextViewHolder: RecyclerView.ViewHolder?) -> Unit

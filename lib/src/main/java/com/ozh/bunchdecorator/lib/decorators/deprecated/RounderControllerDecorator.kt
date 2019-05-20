@@ -1,10 +1,11 @@
-package com.ozh.bunchdecorator.lib.decorators
+package com.ozh.bunchdecorator.lib.decorators.deprecated
 
 import android.graphics.Canvas
 import androidx.recyclerview.widget.RecyclerView
-import ru.unicredit.android.ui.view.outline.round.RoundMode
-import ru.unicredit.android.ui.view.outline.round.RoundMode.*
-import ru.unicredit.android.ui.view.outline.round.RoundOutlineProvider
+import com.ozh.bunchdecorator.lib.decorators.UNDEFINE_VIEW_HOLDER
+import com.ozh.bunchdecorator.lib.decorators.round.RoundMode
+import com.ozh.bunchdecorator.lib.decorators.round.RoundMode.*
+import com.ozh.bunchdecorator.lib.decorators.round.RoundOutlineProvider
 
 /**
  * [RecyclerView.ItemDecoration] для рисования закруглений у контроллеров.

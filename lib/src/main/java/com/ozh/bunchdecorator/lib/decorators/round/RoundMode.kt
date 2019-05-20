@@ -1,4 +1,4 @@
-package ru.unicredit.android.ui.view.outline.round
+package com.ozh.bunchdecorator.lib.decorators.round
 
 /**
  * Enum для описания закругления краев View

@@ -1,4 +1,4 @@
-package ru.unicredit.android.ui.view.outline.round
+package com.ozh.bunchdecorator.lib.decorators.round
 
 import android.graphics.Outline
 import android.view.View
