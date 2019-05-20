@@ -2,8 +2,8 @@ package com.ozh.bunchdecorator.example.controllers
 
 import android.view.ViewGroup
 import com.ozh.bunchdecorator.example.R
-import com.ozh.bunchdecorator.lib.decorators.DecorableViewHolder
-import com.ozh.bunchdecorator.lib.decorators.Divider
+import com.ozh.bunchdecorator.lib.decorators.deprecated.DecorableViewHolder
+import com.ozh.bunchdecorator.lib.decorators.deprecated.Gap
 import com.ozh.bunchdecorator.lib.decorators.Rules.END
 import com.ozh.bunchdecorator.lib.decorators.Rules.MIDDLE
 import kotlinx.android.synthetic.main.item_controller.view.*
@@ -18,10 +18,11 @@ class IntegerController : BindableItemController<Int, IntegerController.Holder>(
     override fun createViewHolder(parent: ViewGroup): Holder =
         Holder(parent)
 
-    class Holder(parent: ViewGroup) : BindableViewHolder<Int>(parent, R.layout.item_controller), DecorableViewHolder {
+    class Holder(parent: ViewGroup) : BindableViewHolder<Int>(parent, R.layout.item_controller),
+        DecorableViewHolder {
 
-        override val itemDivider: Divider =
-            Divider(
+        override val itemDivider: Gap =
+            Gap(
                 itemView.context.resources.getColor(R.color.material_900),
                 itemView.context.resources.getDimensionPixelOffset(R.dimen.dp28),
                 itemView.context.resources.getDimensionPixelOffset(R.dimen.dp16),
