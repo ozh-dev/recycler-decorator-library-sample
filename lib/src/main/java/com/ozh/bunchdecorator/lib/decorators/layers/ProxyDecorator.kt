@@ -5,7 +5,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class ProxyDecorator(private val layersBridge: LayersBridge) : RecyclerView.ItemDecoration() {
+class ProxyDecorator(private val layersBridge: LayersProxy) : RecyclerView.ItemDecoration() {
 
     override fun onDrawOver(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDrawOver(canvas, parent, state)

@@ -11,6 +11,8 @@ import com.ozh.bunchdecorator.lib.decorators.round.RoundOutlineProvider
  * [RecyclerView.ItemDecoration] для рисования закруглений у контроллеров.
  * Работает вместе с [DecorableViewHolder]
  */
+
+@Deprecated("Use com.ozh.bunchdecorator.lib.decorators.layers.Decorator")
 class RounderControllerDecorator : RecyclerView.ItemDecoration() {
 
     private val clipOutlineProvider = RoundOutlineProvider()

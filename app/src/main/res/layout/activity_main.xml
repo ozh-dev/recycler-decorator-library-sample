@@ -6,16 +6,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <Button
-            android:id="@+id/change_draw_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Change"/>
-
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MainActivity"/>
+            tools:context=".LinearDecoratorActivity"/>
 </LinearLayout>

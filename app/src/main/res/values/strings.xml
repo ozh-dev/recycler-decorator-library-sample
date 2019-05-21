@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bunch decorators</string>
+    <string name="linear_decoration_btn">Linear decoration</string>
+    <string name="round_decoration_btn">Round decoration</string>
 </resources>

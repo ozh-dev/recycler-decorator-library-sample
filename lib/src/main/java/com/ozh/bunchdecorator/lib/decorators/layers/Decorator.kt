@@ -5,6 +5,8 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
+const val UNDEFINE_VIEW_TYPE = -1
+
 class Decorator() {
 
     private val underlay: ArrayList<Layer> = arrayListOf()
@@ -28,7 +30,7 @@ class Decorator() {
     }
 
     fun build(): ProxyDecorator {
-        return ProxyDecorator(LayersBridge(underlay, overlay, offsets))
+        return ProxyDecorator(LayersProxy(underlay, overlay, offsets))
     }
 }
 
@@ -46,13 +48,16 @@ class Offsets : ArrayList<Offset>() {
 
 class LayerBuilder {
 
-    var viewItemType: Int = -1
+    var viewItemType: Int = UNDEFINE_VIEW_TYPE
 
     var layerDrawer: LayerDrawer = object : LayerDrawer() {
         override fun draw(
             canvas: Canvas,
             recyclerView: RecyclerView,
-            state: RecyclerView.State
+            state: RecyclerView.State,
+            view: View,
+            viewHolder: RecyclerView.ViewHolder,
+            nextViewHolder: RecyclerView.ViewHolder?
         ) {
             //empty
         }
@@ -64,14 +69,16 @@ class LayerBuilder {
 
 class OffsetBuilder {
 
-    var viewItemType: Int = -1
+    var viewItemType: Int = UNDEFINE_VIEW_TYPE
 
     var offsetDrawer: OffsetDrawer = object : OffsetDrawer() {
         override fun getItemOffsets(
             outRect: Rect,
             childView: View,
             recyclerView: RecyclerView,
-            state: RecyclerView.State
+            state: RecyclerView.State,
+            viewHolder: RecyclerView.ViewHolder,
+            nexViewHolder: RecyclerView.ViewHolder?
         ) {
             //empty
         }

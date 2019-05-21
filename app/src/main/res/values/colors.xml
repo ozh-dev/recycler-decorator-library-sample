@@ -6,4 +6,5 @@
 
     <color name="material_50">#2C99EC</color>
     <color name="material_900">#0D47A1</color>
+    <color name="material_red_A700">#D50000</color>
 </resources>

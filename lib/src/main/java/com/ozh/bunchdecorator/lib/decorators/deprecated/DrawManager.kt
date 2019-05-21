@@ -5,9 +5,11 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.ozh.bunchdecorator.lib.decorators.Rules
+import com.ozh.bunchdecorator.lib.decorators.sample.Rules
 import com.ozh.bunchdecorator.lib.decorators.UNDEFINE_VIEW_HOLDER
+import com.ozh.bunchdecorator.lib.decorators.Utils.forEach
 
+@Deprecated("Use com.ozh.bunchdecorator.lib.decorators.layers.Decorator")
 class DrawManager {
 
     private val dividerPaint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -99,29 +101,4 @@ class DrawManager {
             }
         }
     }
-
-    private fun drawVertical() {
-
-    }
-
-    private fun drawHorizontal() {
-
-    }
-
-    private inline fun forEach(
-        recyclerView: RecyclerView,
-        action: (view: View, viewHolder: RecyclerView.ViewHolder, nextViewHolder: RecyclerView.ViewHolder?) -> Unit
-    ) {
-        with(recyclerView) {
-            val startPosition = 0
-            val finishPosition = childCount
-            for (position in startPosition until finishPosition) {
-                val view = getChildAt(position)
-                val viewHolder = getChildViewHolder(view)
-                val nextViewHolder = findViewHolderForAdapterPosition(viewHolder.adapterPosition + 1)
-                action(view, viewHolder, nextViewHolder)
-            }
-        }
-    }
 }
-

@@ -6,6 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.ozh.bunchdecorator.lib.decorators.deprecated.DrawManager
 
+@Deprecated("Use com.ozh.bunchdecorator.lib.decorators.layers.Decorator")
 class LinearItemsDecoration(var drawOver: Boolean = false) : RecyclerView.ItemDecoration() {
 
     private val drawManager = DrawManager()
