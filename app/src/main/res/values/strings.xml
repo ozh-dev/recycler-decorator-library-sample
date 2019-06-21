@@ -2,4 +2,7 @@
     <string name="app_name">Bunch decorators</string>
     <string name="linear_decoration_btn">Linear decoration</string>
     <string name="round_decoration_btn">Round decoration</string>
+    <string name="drawble_decoration_btn">Drawable decoration</string>
+    <string name="recycler_view_text">RecyclerView</string>
+    <string name="viewpager_2_text">ViewPager2</string>
 </resources>

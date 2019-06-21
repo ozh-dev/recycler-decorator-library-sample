@@ -6,11 +6,15 @@ import kotlinx.android.synthetic.main.item_controller80.view.*
 import ru.surfstudio.android.easyadapter.controller.BindableItemController
 import ru.surfstudio.android.easyadapter.holder.BindableViewHolder
 
-class StringController(@LayoutRes val layoutRes: Int) : BindableItemController<String, StringController.Holder>() {
+class Controller(@LayoutRes val layoutRes: Int) : BindableItemController<String, Controller.Holder>() {
 
     override fun getItemId(data: String) = "$layoutRes:$data"
 
     override fun getItemHash(data: String): String = "$layoutRes:$data"
+
+    override fun viewType(): Int {
+        return layoutRes
+    }
 
     override fun createViewHolder(parent: ViewGroup): Holder =
         Holder(parent, layoutRes)

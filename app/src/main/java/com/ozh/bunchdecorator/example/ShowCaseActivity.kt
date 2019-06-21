@@ -17,8 +17,8 @@ class ShowCaseActivity : AppCompatActivity() {
             startActivity(Intent(this, LinearDecoratorActivity::class.java))
         }
 
-        round_decor_btn.setOnClickListener {
-            startActivity(Intent(this, RoundedDecoratorActivity::class.java))
+        drawable_decor_btn.setOnClickListener {
+            startActivity(Intent(this, CarouselDecoratorActivity::class.java))
         }
     }
 }

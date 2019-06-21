@@ -17,10 +17,10 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
 
     <Button
-            android:id="@+id/round_decor_btn"
+            android:id="@+id/drawable_decor_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/round_decoration_btn"
+            android:text="@string/drawble_decoration_btn"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
 
 </LinearLayout>
