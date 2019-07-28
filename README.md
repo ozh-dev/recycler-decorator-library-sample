@@ -93,3 +93,26 @@ val decorator = decorator {
             }
         }
 ```
+```kotlin
+
+         layer {
+                    drawBy(object : LayerDrawer() {
+                        override fun draw(canvas: Canvas, view: View, recyclerView: RecyclerView, state: RecyclerView.State) {
+                            //implement logic
+                        }
+
+                    })
+                }
+
+```
+
+```kotlin
+        offset {
+                    drawBy(object : OffsetDrawer() {
+                        override fun getItemOffsets(outRect: Rect, childView: View, recyclerView: RecyclerView, state: RecyclerView.State) {
+                            //implement logic
+                        }
+
+                    })
+                }
+```
