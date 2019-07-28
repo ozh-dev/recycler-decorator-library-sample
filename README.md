@@ -1,7 +1,7 @@
 # Dls-decorator
 Write RecyclerVIew ItemDecorator in DSL style.
 
-Главная цель этой библиотеки упростить написание ItemDecoration для RecyclerView.
+Главная цель этой библиотеки упростить написание и сделать более наглядным создание ItemDecoration для RecyclerView.
 
 RecyclerView.ItemDecoration имеет три метода для деокрирования View внтури RecyclerView \n
     
@@ -17,4 +17,4 @@ getItemOffsets() - используется для выставления отс
 ЗА вьюшками и ПЕРЕД ними. 
 Другими словами мы можешь отрисовать контент на underlay и на overlay
 
-![](img\decor_concept.jpeg)
+![](decor_concept.jpeg)
