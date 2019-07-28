@@ -15,6 +15,81 @@ getItemOffsets() - используется для выставления отс
 
 Грубо говоря с помощью ItemDecoration мы можем отрисовать что на Канвасе
 ЗА вьюшками и ПЕРЕД ними. 
-Другими словами мы можешь отрисовать контент на underlay и на overlay
+Другими словами мы можеv отрисовать контент на underlay и на overlay
 
-![](decor_concept.jpeg)
+![](decor_concept.jpe4g)
+
+Описание
+
+```kotlin
+val decorator = decorator { 
+            
+        }
+```
+
+```kotlin
+val decorator = decorator {
+            
+            underlay { 
+                
+            }
+            
+            overlay { 
+                
+            }
+            
+            offsets { 
+                
+            }
+        }
+```
+
+
+```kotlin
+val decorator = decorator {
+
+            underlay {
+                layer { 
+                    
+                }
+            }
+
+            overlay {
+                layer { 
+                    
+                }
+            }
+
+            offsets {
+                offset { 
+                    
+                }
+            }
+        }
+```
+
+```kotlin
+val decorator = decorator {
+
+            underlay {
+                layer { 
+                    attachTo(...)
+                    drawBy(...)
+                }
+            }
+
+            overlay {
+                layer {
+                    attachTo(...)
+                    drawBy(...)
+                }
+            }
+
+            offsets {
+                offset {
+                    attachTo(...)
+                    drawBy(...)
+                }
+            }
+        }
+```
