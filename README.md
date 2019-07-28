@@ -17,7 +17,7 @@ getItemOffsets() - используется для выставления отс
 ЗА вьюшками и ПЕРЕД ними. 
 Другими словами мы можеv отрисовать контент на underlay и на overlay
 
-![](decor_concept.jpe4g)
+![](decor_concept.jpeg)
 
 Описание
 
