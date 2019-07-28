@@ -9,16 +9,16 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ShowCaseActivity">
+        <activity android:name="com.ozh.dd.example.ShowCaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LinearDecoratorActivity">
+        <activity android:name="com.ozh.dd.example.LinearDecoratorActivity">
         </activity>
-        <activity android:name=".CarouselDecoratorActivity"/>
+        <activity android:name="com.ozh.dd.example.CarouselDecoratorActivity"/>
     </application>
 
 </manifest>
