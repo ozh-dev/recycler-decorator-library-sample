@@ -1,12 +1,17 @@
 package com.ozh.dd.round
 
 import android.graphics.Outline
+import android.os.Build
 import android.view.View
 import android.view.ViewOutlineProvider
+import androidx.annotation.RequiresApi
 
 /**
- * [ViewOutlineProvider] для закругления View
+ * [ViewOutlineProvider] witch works with [RoundMode]
+ * @param outlineRadius corner radius
+ * @param roundMode mode for corners
  */
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class RoundOutlineProvider(
         var outlineRadius: Float = 0f,
         var roundMode: RoundMode = RoundMode.NONE

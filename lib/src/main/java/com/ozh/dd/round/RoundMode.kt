@@ -1,7 +1,7 @@
 package com.ozh.dd.round
 
 /**
- * Enum для описания закругления краев View
+ * Enum describes mode round corners
  */
 enum class RoundMode {
     TOP,

@@ -7,6 +7,9 @@ import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import com.ozh.dd.UNDEFINE_VIEW_TYPE
 
+/**
+ * Calls appropriate drawers for viewType
+ */
 class LayersBridge(
     private val underlays: List<DecorDrawer<LayerDrawer>>,
     private val overlays: List<DecorDrawer<LayerDrawer>>,

@@ -5,6 +5,9 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Main decorator for draw all layer of RecyclerView decor
+ */
 class MasterDecorator(private val layersBridge: LayersBridge) : RecyclerView.ItemDecoration() {
 
     override fun onDrawOver(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
