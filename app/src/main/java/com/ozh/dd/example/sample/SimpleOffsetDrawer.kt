@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.ozh.dd.draw.OffsetDrawer
 
-class SimpleOffsetDrawer(private val offset: Int) : OffsetDrawer() {
+class SimpleOffsetDrawer(private val offset: Int) : OffsetDrawer {
 
     override fun getItemOffsets(
         outRect: Rect,

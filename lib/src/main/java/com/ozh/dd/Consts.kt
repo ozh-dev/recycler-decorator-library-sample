@@ -16,4 +16,5 @@
 
 package com.ozh.dd
 
-const val UNDEFINE_VIEW_TYPE = -1
+const val EACH_VIEW = -1
+const val RECYCLER_VIEW = -2

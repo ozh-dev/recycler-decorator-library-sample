@@ -23,11 +23,8 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Abstract class for implementation OffsetDrawer
  */
-abstract class OffsetDrawer {
-    abstract fun getItemOffsets(
-        outRect: Rect,
-        childView: View,
-        recyclerView: RecyclerView,
-        state: RecyclerView.State
-    )
+interface OffsetDrawer {
+    fun getItemOffsets(outRect: Rect, childView: View, recyclerView: RecyclerView, state: RecyclerView.State) {
+        //Override
+    }
 }

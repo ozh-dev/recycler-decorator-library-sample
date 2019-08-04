@@ -21,15 +21,16 @@ import android.graphics.Rect
 import android.view.View
 import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
-import com.ozh.dd.UNDEFINE_VIEW_TYPE
+import com.ozh.dd.EACH_VIEW
+import com.ozh.dd.RECYCLER_VIEW
 
 /**
  * Calls appropriate drawers for viewType
  */
 class LayersBridge(
-    private val underlays: List<DecorDrawer<LayerDrawer>>,
-    private val overlays: List<DecorDrawer<LayerDrawer>>,
-    private val offsets: List<DecorDrawer<OffsetDrawer>>
+    underlays: List<DecorDrawer<LayerDrawer>>,
+    overlays: List<DecorDrawer<LayerDrawer>>,
+    offsets: List<DecorDrawer<OffsetDrawer>>
 ) {
 
     private val groupedUnderlays = underlays.groupBy { it.viewItemType }
@@ -37,23 +38,24 @@ class LayersBridge(
     private val associatedOffsets = offsets.associateBy { it.viewItemType }
 
     fun onDrawUnderlay(canvas: Canvas, recyclerView: RecyclerView, state: RecyclerView.State) {
-        groupedUnderlays.drawTiedLayers(canvas, recyclerView, state)
-        groupedUnderlays.drawUnTiedLayers(canvas, recyclerView, state)
+        groupedUnderlays.drawRecyclerViewDecors(canvas, recyclerView, state)
+        groupedUnderlays.drawAttachedDecors(canvas, recyclerView, state)
+        groupedUnderlays.drawNotAttachedDecors(canvas, recyclerView, state)
     }
 
     fun onDrawOverlay(canvas: Canvas, recyclerView: RecyclerView, state: RecyclerView.State) {
-        groupedOverlays.drawTiedLayers(canvas, recyclerView, state)
-        groupedOverlays.drawUnTiedLayers(canvas, recyclerView, state)
+        groupedOverlays.drawAttachedDecors(canvas, recyclerView, state)
+        groupedOverlays.drawNotAttachedDecors(canvas, recyclerView, state)
+        groupedOverlays.drawRecyclerViewDecors(canvas, recyclerView, state)
     }
 
     fun getItemOffsets(outRect: Rect, view: View, recyclerView: RecyclerView, state: RecyclerView.State) {
-        val vh = recyclerView.findContainingViewHolder(view)
-        associatedOffsets[vh?.itemViewType ?: UNDEFINE_VIEW_TYPE]
-            ?.drawer
-            ?.getItemOffsets(outRect, view, recyclerView, state)
+        drawOffset(EACH_VIEW, outRect, view, recyclerView, state)
+        val itemViewType = recyclerView.findContainingViewHolder(view)?.itemViewType ?: EACH_VIEW
+        drawOffset(itemViewType, outRect, view, recyclerView, state)
     }
 
-    private fun Map<Int, List<DecorDrawer<LayerDrawer>>>.drawTiedLayers(
+    private fun Map<Int, List<DecorDrawer<LayerDrawer>>>.drawAttachedDecors(
         canvas: Canvas,
         recyclerView: RecyclerView,
         state: RecyclerView.State
@@ -67,19 +69,29 @@ class LayersBridge(
         }
     }
 
-    private fun Map<Int, List<DecorDrawer<LayerDrawer>>>.drawUnTiedLayers(
+    private fun Map<Int, List<DecorDrawer<LayerDrawer>>>.drawNotAttachedDecors(
         canvas: Canvas,
         recyclerView: RecyclerView,
         state: RecyclerView.State
     ) {
         recyclerView.children.forEach { view ->
-            this[UNDEFINE_VIEW_TYPE]
+            this[EACH_VIEW]
                 ?.forEach { it.drawer.draw(canvas, view, recyclerView, state) }
         }
     }
 
-    private fun getVisibleViewTypes(recyclerView: RecyclerView) =
-        recyclerView.children.map { view ->
-            view to recyclerView.getChildViewHolder(view).itemViewType
-        }
+    private fun Map<Int, List<DecorDrawer<LayerDrawer>>>.drawRecyclerViewDecors(
+        canvas: Canvas,
+        recyclerView: RecyclerView,
+        state: RecyclerView.State
+    ) {
+        this[RECYCLER_VIEW]
+            ?.forEach { it.drawer.draw(canvas, recyclerView, state) }
+    }
+
+    private fun drawOffset(viewType: Int, outRect: Rect, view: View, recyclerView: RecyclerView, state: RecyclerView.State) {
+        associatedOffsets[viewType]
+            ?.drawer
+            ?.getItemOffsets(outRect, view, recyclerView, state)
+    }
 }

@@ -1,11 +1,10 @@
 package com.ozh.dd.example
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ozh.bunchdecorator.example.R
 import com.ozh.dd.Decorator.Companion.decorator
-import com.ozh.bunchdecorator.example.sample.*
 import com.ozh.dd.example.controllers.Controller
 import com.ozh.dd.example.sample.*
 import kotlinx.android.synthetic.main.activity_main.*
