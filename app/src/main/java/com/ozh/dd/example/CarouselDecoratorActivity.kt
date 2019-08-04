@@ -1,6 +1,5 @@
 package com.ozh.dd.example
 
-import android.graphics.Canvas
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
@@ -10,6 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.ozh.bunchdecorator.example.R
+import com.ozh.dd.Decorator.Companion.decorator
+import com.ozh.dd.EACH_VIEW
+import com.ozh.dd.RECYCLER_VIEW
+import com.ozh.dd.draw.OffsetDrawer
 import com.ozh.dd.example.controllers.Controller
 import com.ozh.dd.example.controllers.LinePagerIndicatorDecoration
 import kotlinx.android.synthetic.main.activity_pager.*
@@ -26,7 +29,6 @@ class CarouselDecoratorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pager)
-
         init()
     }
 
@@ -41,24 +43,32 @@ class CarouselDecoratorActivity : AppCompatActivity() {
             adapter = easyAdapter2.apply { setFirstInvisibleItemEnabled(false) }
         }
 
-        //TODO add this case in dsl decorators
-        val indicatorDrawer = object : RecyclerView.ItemDecoration() {
-            val drawer = LinePagerIndicatorDecoration()
-            override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-                super.onDraw(c, parent, state)
-                drawer.draw(c, parent, state)
-            }
-
-            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                super.getItemOffsets(outRect, view, parent, state)
+        val offsetDrawer = object : OffsetDrawer {
+            override fun getItemOffsets(outRect: Rect, childView: View, recyclerView: RecyclerView, state: RecyclerView.State) {
                 outRect.bottom = resources.getDimensionPixelOffset(R.dimen.dp32)
             }
         }
 
-        pager_rv.addItemDecoration(indicatorDrawer)
+        val decorator = decorator {
+            underlay {
+                layer {
+                    attachTo(RECYCLER_VIEW)
+                    drawBy(LinePagerIndicatorDecoration())
+                }
+            }
+
+            offsets {
+                offset {
+                    attachTo(EACH_VIEW)
+                    drawBy(offsetDrawer)
+                }
+            }
+        }
+
+        pager_rv.addItemDecoration(decorator)
         pager2_rv.children.forEach { view ->
             if (view is RecyclerView) {
-                view.addItemDecoration(indicatorDrawer)
+                view.addItemDecoration(decorator)
             }
         }
 

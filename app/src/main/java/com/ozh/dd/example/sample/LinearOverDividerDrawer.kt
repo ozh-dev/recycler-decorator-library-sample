@@ -6,7 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.ozh.dd.draw.LayerDrawer
 
-class LinearOverDividerDrawer(private val gap: Gap) : LayerDrawer() {
+class LinearOverDividerDrawer(private val gap: Gap) : LayerDrawer {
 
     private val dividerPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val alpha = dividerPaint.alpha

@@ -7,7 +7,7 @@ import com.ozh.dd.draw.LayerDrawer
 import com.ozh.dd.round.RoundMode
 import com.ozh.dd.round.RoundOutlineProvider
 
-class RoundViewHoldersGroupDrawer(private val cornerRadius: Float) : LayerDrawer() {
+class RoundViewHoldersGroupDrawer(private val cornerRadius: Float) : LayerDrawer {
 
     override fun draw(
         canvas: Canvas,

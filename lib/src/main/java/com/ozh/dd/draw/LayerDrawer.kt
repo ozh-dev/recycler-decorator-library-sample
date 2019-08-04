@@ -23,11 +23,12 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Abstract class for implementation LayerDrawer
  */
-abstract class LayerDrawer {
-    abstract fun draw(
-        canvas: Canvas,
-        view: View,
-        recyclerView: RecyclerView,
-        state: RecyclerView.State
-    )
+interface LayerDrawer {
+    fun draw(canvas: Canvas, view: View, recyclerView: RecyclerView, state: RecyclerView.State) {
+        //Override
+    }
+
+    fun draw(canvas: Canvas, recyclerView: RecyclerView, state: RecyclerView.State) {
+        //Override
+    }
 }
