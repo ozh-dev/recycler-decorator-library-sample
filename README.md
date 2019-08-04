@@ -1,4 +1,5 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
+[![](https://jitpack.io/v/OOOZH/DD.svg)](https://jitpack.io/#OOOZH/DD)
 
 # Dls-decorator
 Write RecyclerVIew ItemDecorator in DSL style.
