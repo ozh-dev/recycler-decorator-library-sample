@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ozh.dd.example.LinearDecoratorActivity">
+        <activity android:name="ru.ozh.recycler.decorator.LinearDecoratorActivity">
         </activity>
-        <activity android:name="com.ozh.dd.example.CarouselDecoratorActivity"/>
+        <activity android:name="ru.ozh.recycler.decorator.CarouselDecoratorActivity"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.ozh.dd.example.sample
+package ru.ozh.recycler.decorator.sample
 
 object Rules {
     const val MIDDLE = 1

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ozh.bunchdecorator.example.R
 import kotlinx.android.synthetic.main.activity_show_case.*
+import ru.ozh.recycler.decorator.CarouselDecoratorActivity
+import ru.ozh.recycler.decorator.LinearDecoratorActivity
 
 class ShowCaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

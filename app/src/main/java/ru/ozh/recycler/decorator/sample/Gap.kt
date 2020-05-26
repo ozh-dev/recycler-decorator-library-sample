@@ -1,9 +1,9 @@
-package com.ozh.dd.example.sample
+package ru.ozh.recycler.decorator.sample
 
 import android.graphics.Color
 import androidx.annotation.ColorInt
-import com.ozh.dd.example.sample.Rules.END
-import com.ozh.dd.example.sample.Rules.MIDDLE
+import ru.ozh.recycler.decorator.sample.Rules.END
+import ru.ozh.recycler.decorator.sample.Rules.MIDDLE
 
 /**
  * Модель для описания разделителя

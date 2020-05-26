@@ -1,4 +1,4 @@
-package com.ozh.dd.example.sample
+package ru.ozh.recycler.decorator.sample
 
 import androidx.annotation.IntDef
 
