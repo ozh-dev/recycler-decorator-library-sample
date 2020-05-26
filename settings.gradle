@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':recycler-decorator-0.5.0-alpha.1'

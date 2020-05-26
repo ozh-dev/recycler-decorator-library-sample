@@ -8,6 +8,10 @@ buildscript {
         maven { url 'https://artifactory.surfstudio.ru/artifactory/libs-release-local' }
         google()
         jcenter()
+
+        flatDir {
+            dirs 'libs'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
