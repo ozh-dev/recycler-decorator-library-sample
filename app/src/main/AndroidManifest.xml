@@ -9,16 +9,25 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.ozh.dd.example.ShowCaseActivity">
+        <activity android:name="ru.ozh.recycler.decorator.MainActivityView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="ru.ozh.recycler.decorator.LinearDecoratorActivity">
+
+        <activity android:name="ru.ozh.recycler.decorator.list.LinearDecoratorActivityView">
+
         </activity>
-        <activity android:name="ru.ozh.recycler.decorator.CarouselDecoratorActivity"/>
+
+        <activity android:name="ru.ozh.recycler.decorator.chat.ChatActivityView">
+
+        </activity>
+
+        <activity android:name="ru.ozh.recycler.decorator.pager.CarouselDecoratorActivityView">
+
+        </activity>
     </application>
 
 </manifest>

@@ -31,9 +31,9 @@ class CarouselDecoratorActivity : AppCompatActivity() {
             PagerSnapHelper().attachToRecyclerView(pager_rv)
         }
 
-        pager2_rv.apply {
-            adapter = easyAdapter2.apply { setFirstInvisibleItemEnabled(false) }
-        }
+//        pager2_rv.apply {
+//            adapter = easyAdapter2.apply { setFirstInvisibleItemEnabled(false) }
+//        }
 
 //        val offsetDrawer = object : OffsetDrawer {
 //            override fun getItemOffsets(outRect: Rect, childView: View, recyclerView: RecyclerView, state: RecyclerView.State) {

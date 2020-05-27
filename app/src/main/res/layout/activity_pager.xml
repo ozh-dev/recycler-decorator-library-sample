@@ -3,7 +3,6 @@
               android:id="@+id/root_view"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:background="@color/material_50_alpha_50"
               android:layout_height="match_parent">
 
     <TextView
@@ -15,18 +14,6 @@
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pager_rv"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"/>
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:text="@string/viewpager_2_text"/>
-
-    <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager2_rv"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 
