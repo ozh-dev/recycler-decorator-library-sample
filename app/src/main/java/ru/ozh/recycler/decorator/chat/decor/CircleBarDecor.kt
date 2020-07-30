@@ -5,8 +5,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import androidx.recyclerview.widget.RecyclerView
-import ru.surfstudio.android.recycler.decorator.sample.easyadapter.chat.decor.ScrollProgressDecor
-import ru.surfstudio.android.recycler.decorator.sample.toPx
+import ru.ozh.recycler.decorator.px
 
 class CircleBarDecor() : ScrollProgressDecor() {
 
@@ -16,7 +15,7 @@ class CircleBarDecor() : ScrollProgressDecor() {
                 color = Color.LTGRAY
             }
 
-    private val circleDiameter = 100.toPx
+    private val circleDiameter = 100.px
 
     private val progressBarRect = RectF()
     private var scrollRange = 0

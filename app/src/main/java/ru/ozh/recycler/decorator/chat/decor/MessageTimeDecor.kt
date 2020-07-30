@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_controller_message_time.view.*
 import ru.surfstudio.android.recycler.decorator.Decorator
-import ru.surfstudio.android.recycler.decorator.sample.toPx
+import ru.ozh.recycler.decorator.px
 
 class MessageTimeDecor(private val context: Context) : Decorator.ViewHolderDecor {
 
@@ -45,6 +45,6 @@ class MessageTimeDecor(private val context: Context) : Decorator.ViewHolderDecor
 
         textRectAreaMapped.inset(-scaleValue, -scaleValue)
 
-        canvas.drawRoundRect(textRectAreaMapped, 10.toPx.toFloat(), 10.toPx.toFloat(), paint)
+        canvas.drawRoundRect(textRectAreaMapped, 10.px.toFloat(), 10.px.toFloat(), paint)
     }
 }

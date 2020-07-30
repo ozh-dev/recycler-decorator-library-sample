@@ -8,7 +8,8 @@
     android:orientation="vertical"
     tools:gravity="end"
     android:paddingStart="16dp"
-    android:paddingEnd="16dp">
+    android:paddingEnd="16dp"
+    tools:context="ru.ozh.recycler.decorator.chat.ChatActivityView">
 
     <LinearLayout
         android:id="@+id/message_area_layout"
@@ -21,14 +22,14 @@
             android:layout_width="150dp"
             android:layout_height="16dp"
             app:cornerRadius="3dp"
-            app:stubColor="@color/gray_A150" />
+            app:stubColor="@color/gray_A700" />
 
         <ru.ozh.recycler.decorator.StubView
             android:layout_width="100dp"
             android:layout_height="16dp"
             android:layout_marginTop="8dp"
             app:cornerRadius="3dp"
-            app:stubColor="@color/gray_A150" />
+            app:stubColor="@color/gray_A700" />
 
     </LinearLayout>
 

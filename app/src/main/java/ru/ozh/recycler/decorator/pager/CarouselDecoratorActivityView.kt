@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.ozh.bunchdecorator.example.R
 import ru.ozh.recycler.decorator.pager.controllers.Controller
-import ru.ozh.recycler.decorator.list.decor.RoundViewHoldersGroupDrawer
+import ru.ozh.recycler.decorator.list.decor.RoundDecor
 import ru.ozh.recycler.decorator.list.decor.SimpleOffsetDrawer
 import kotlinx.android.synthetic.main.activity_pager.*
 import ru.surfstudio.android.easyadapter.EasyAdapter
 import ru.surfstudio.android.easyadapter.ItemList
 import ru.surfstudio.android.recycler.decorator.Decorator
 import ru.ozh.recycler.decorator.pager.controllers.LinePagerIndicatorDecoration
-import ru.surfstudio.android.recycler.decorator.sample.toPx
+import ru.ozh.recycler.decorator.px
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class CarouselDecoratorActivityView : AppCompatActivity() {
@@ -39,11 +39,11 @@ class CarouselDecoratorActivityView : AppCompatActivity() {
             PagerSnapHelper().attachToRecyclerView(pager_rv)
         }
 
-        val roundViewHoldersGroupDrawer = RoundViewHoldersGroupDrawer(8.toPx.toFloat())
+        val roundViewHoldersGroupDrawer = RoundDecor(8.px.toFloat())
 
         val simpleOffsetDrawer2 = SimpleOffsetDrawer(
-            left = 16.toPx,
-            right = 16.toPx
+            left = 16.px,
+            right = 16.px
         )
 
         val decorator2 = Decorator.Builder()

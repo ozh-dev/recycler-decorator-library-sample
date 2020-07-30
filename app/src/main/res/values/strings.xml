@@ -1,11 +1,18 @@
 <resources>
-    <string name="app_name">Bunch decorators</string>
+    <string name="app_name">Decors sample</string>
     <string name="drawble_decoration_btn">Drawable decoration</string>
     <string name="viewpager_2_text">ViewPager2</string>
 
+    <string name="sdk_linear_decoration_btn">SDK Linear decoration</string>
     <string name="linear_decoration_btn">Linear decoration</string>
     <string name="round_decoration_btn">Round decoration</string>
     <string name="pager_decoration_btn">Pager decoration</string>
     <string name="recycler_view_text">RecyclerView</string>
     <string name="chat_sample">Chat sample</string>
+    <string name="timeline_sample">Timeline sample</string>
+
+    <string name="dark_mode_menu_item">Dark mode</string>
+    <string name="light_mode_menu_item">Light mode</string>
+    <string name="disable_decorator_mode_menu_item">Disable</string>
+    <string name="enable_decorator_mode_menu_item">Enable</string>
 </resources>

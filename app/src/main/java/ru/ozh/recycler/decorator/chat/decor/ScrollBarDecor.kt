@@ -5,15 +5,14 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import androidx.recyclerview.widget.RecyclerView
-import ru.surfstudio.android.recycler.decorator.sample.easyadapter.chat.decor.ScrollProgressDecor
-import ru.surfstudio.android.recycler.decorator.sample.toPx
+import ru.ozh.recycler.decorator.px
 
-class ScrollBarDecor() : ScrollProgressDecor() {
+class ScrollBarDecor : ScrollProgressDecor() {
 
     private val paint = Paint()
         .apply {
             isAntiAlias = true
-            color = Color.LTGRAY
+            color = Color.GRAY
         }
 
     private val progressBarRect = RectF()
@@ -39,10 +38,10 @@ class ScrollBarDecor() : ScrollProgressDecor() {
             this.top = 0f
             this.right = canvas.width.toFloat()
             this.bottom = this.top + barHeight
-            this.left = (canvas.width - 8.toPx).toFloat()
+            this.left = (canvas.width - 8.px).toFloat()
         }
 
-        canvas.drawRoundRect(progressBarRect, 8.toPx.toFloat(), 8.toPx.toFloat(), paint)
+        canvas.drawRoundRect(progressBarRect, 8.px.toFloat(), 8.px.toFloat(), paint)
         canvas.restore()
     }
 }

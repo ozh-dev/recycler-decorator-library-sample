@@ -1,5 +1,6 @@
 package ru.ozh.recycler.decorator.list.decor
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.annotation.ColorInt
 import ru.ozh.recycler.decorator.list.decor.Rules.END
@@ -13,6 +14,7 @@ import ru.ozh.recycler.decorator.list.decor.Rules.MIDDLE
  * @param paddingEnd отступ справа для разделителя
  * @param rule rule for draw item divider
  */
+@SuppressLint("WrongConstant")
 class Gap(
     @ColorInt val color: Int = Color.TRANSPARENT,
     val height: Int = 0,

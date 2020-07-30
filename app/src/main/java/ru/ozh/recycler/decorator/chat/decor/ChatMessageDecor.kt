@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.chat_message_layout.view.*
 import ru.ozh.recycler.decorator.chat.ChatMessageDirection
 import ru.ozh.recycler.decorator.chat.controller.ChatMessageController
 import ru.surfstudio.android.recycler.decorator.Decorator
-import ru.surfstudio.android.recycler.decorator.sample.toPx
+import ru.ozh.recycler.decorator.px
 
 class ChatMessageDecor(private val context: Context) : Decorator.ViewHolderDecor {
 
@@ -24,18 +24,18 @@ class ChatMessageDecor(private val context: Context) : Decorator.ViewHolderDecor
 
     private val outcomeBubbleCorners =
             floatArrayOf(
-                    8.toPx.toFloat(), 8.toPx.toFloat(),     // Top left radius in px
+                    8.px.toFloat(), 8.px.toFloat(),     // Top left radius in px
                     0f, 0f,                                 // Top right radius in px
-                    8.toPx.toFloat(), 8.toPx.toFloat(),     // Bottom right radius in px
+                    8.px.toFloat(), 8.px.toFloat(),     // Bottom right radius in px
                     0f, 0f                                  // Bottom left radius in px
             )
 
     private val incomeBubbleCorners =
             floatArrayOf(
                     0f, 0f,                                 // Top left radius in px
-                    8.toPx.toFloat(), 8.toPx.toFloat(),     // Top right radius in px
+                    8.px.toFloat(), 8.px.toFloat(),     // Top right radius in px
                     0f, 0f,                                 // Bottom right radius in px
-                    8.toPx.toFloat(), 8.toPx.toFloat()      // Bottom left radius in px
+                    8.px.toFloat(), 8.px.toFloat()      // Bottom left radius in px
             )
 
     private val path = Path()
@@ -68,8 +68,8 @@ class ChatMessageDecor(private val context: Context) : Decorator.ViewHolderDecor
                 //right bottom corner of bubble
                 val (x, y) = messageAreaRect.right to messageAreaRect.bottom
                 path.moveTo(x, y)
-                path.lineTo(x + 8.toPx, y)
-                path.lineTo(x, y - 8.toPx)
+                path.lineTo(x + 8.px, y)
+                path.lineTo(x, y - 8.px)
                 path.close()
             }
 
@@ -83,8 +83,8 @@ class ChatMessageDecor(private val context: Context) : Decorator.ViewHolderDecor
                 //left bottom corner of bubble
                 val (x, y) = messageAreaRect.left to messageAreaRect.bottom
                 path.moveTo(x, y)
-                path.lineTo(x - 8.toPx, y)
-                path.lineTo(x, y - 8.toPx)
+                path.lineTo(x - 8.px, y)
+                path.lineTo(x, y - 8.px)
                 path.close()
             }
         }

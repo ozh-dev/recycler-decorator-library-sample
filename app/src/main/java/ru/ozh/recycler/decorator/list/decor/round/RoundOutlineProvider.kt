@@ -21,6 +21,7 @@ import android.os.Build
 import android.view.View
 import android.view.ViewOutlineProvider
 import androidx.annotation.RequiresApi
+import ru.ozh.recycler.decorator.list.decor.round.RoundMode
 
 /**
  * [ViewOutlineProvider] witch works with [RoundMode]

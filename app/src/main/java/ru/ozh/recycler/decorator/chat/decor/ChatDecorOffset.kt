@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import ru.ozh.recycler.decorator.chat.controller.ChatMessageController
 import ru.surfstudio.android.recycler.decorator.Decorator
-import ru.surfstudio.android.recycler.decorator.sample.toPx
+import ru.ozh.recycler.decorator.px
 
 class ChatDecorOffset : Decorator.OffsetDecor {
 
@@ -20,6 +20,6 @@ class ChatDecorOffset : Decorator.OffsetDecor {
         if(vh !is ChatMessageController.Holder) {
             return
         }
-        outRect.set(0, 8.toPx, 0, 0)
+        outRect.set(0, 8.px, 0, 0)
     }
 }

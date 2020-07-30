@@ -2,6 +2,9 @@ package ru.ozh.recycler.decorator.chat
 
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ozh.bunchdecorator.example.R
@@ -24,10 +27,44 @@ class ChatActivityView : AppCompatActivity() {
     private val chatController = ChatMessageController()
     private val messageTimeController = MessageTimeController()
 
+    val decorator by lazy {
+        Decorator.Builder()
+            .underlay(CircleBarDecor())
+            .underlay(messageTimeController.viewType() to MessageTimeDecor(this))
+            .underlay(chatController.viewType() to ChatMessageDecor(this))
+            .overlay(ScrollBarDecor())
+            .offset(chatController.viewType() to ChatDecorOffset())
+            .build()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
         init()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.linear_decor_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.disable_decorator -> {
+                recycler_view.removeItemDecoration(decorator)
+                true
+            }
+
+            R.id.enable_decorator -> {
+                if (recycler_view.itemDecorationCount == 0) {
+                    recycler_view.addItemDecoration(decorator)
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun init() {
@@ -35,14 +72,6 @@ class ChatActivityView : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@ChatActivityView)
             adapter = easyAdapter
         }
-
-        val decorator = Decorator.Builder()
-                .underlay(CircleBarDecor())
-                .underlay(messageTimeController.viewType() to MessageTimeDecor(this))
-                .underlay(chatController.viewType() to ChatMessageDecor(this))
-                .overlay(ScrollBarDecor())
-                .offset(chatController.viewType() to ChatDecorOffset())
-                .build()
 
         recycler_view.addItemDecoration(decorator)
 

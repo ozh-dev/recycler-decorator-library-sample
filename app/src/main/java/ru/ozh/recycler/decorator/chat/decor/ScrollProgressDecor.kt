@@ -1,11 +1,9 @@
-package ru.surfstudio.android.recycler.decorator.sample.easyadapter.chat.decor
+package ru.ozh.recycler.decorator.chat.decor
 
 import android.graphics.*
-import android.util.Log
 import androidx.annotation.FloatRange
 import androidx.recyclerview.widget.RecyclerView
 import ru.surfstudio.android.recycler.decorator.Decorator
-import ru.surfstudio.android.recycler.decorator.sample.toPx
 
 abstract class ScrollProgressDecor : Decorator.RecyclerViewDecor {
 

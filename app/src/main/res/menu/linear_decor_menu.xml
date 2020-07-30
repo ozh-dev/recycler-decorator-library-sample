@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/disable_decorator"
+        android:title="@string/disable_decorator_mode_menu_item"/>
+
+    <item
+        android:id="@+id/enable_decorator"
+        android:title="@string/enable_decorator_mode_menu_item"/>
+</menu>

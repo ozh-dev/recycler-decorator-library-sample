@@ -1,36 +1,34 @@
 package ru.ozh.recycler.decorator.pager.controllers
 
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.surfstudio.android.recycler.decorator.Decorator
-import ru.surfstudio.android.recycler.decorator.sample.toPx
+import ru.ozh.recycler.decorator.px
 
 class LinePagerIndicatorDecoration : Decorator.RecyclerViewDecor {
 
-    private val colorActive = -0x1
-    private val colorInactive = 0x66FFFFFF
+    private val colorActive = Color.GREEN
+    private val colorInactive = Color.WHITE
 
-    /**
-     * Height attachTo the space the indicator takes up at the bottom attachTo the view.
-     */
-    private val indicatorHeight = 16.toPx
+    private val indicatorHeight = 16.px
 
     /**
      * Indicator stroke width.
      */
-    private val indicatorStrokeWidth = 2.toPx
+    private val indicatorStrokeWidth = 2.px
 
     /**
      * Indicator width.
      */
-    private val indicatorItemLength = 16.toPx
+    private val indicatorItemLength = 16.px
     /**
      * Padding between indicators.
      */
-    private val indicatorItemPadding = 4.toPx
+    private val indicatorItemPadding = 4.px
 
     /**
      * Some more natural animation interpolation

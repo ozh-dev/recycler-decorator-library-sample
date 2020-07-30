@@ -7,6 +7,13 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/sdk_linear_decor_btn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sdk_linear_decoration_btn" />
+
+    <Button
         android:id="@+id/linear_decor_btn"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
@@ -26,5 +33,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/chat_sample" />
+
+    <Button
+        android:id="@+id/timeline_btn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timeline_sample" />
 
 </LinearLayout>

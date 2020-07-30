@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ozh.bunchdecorator.example">
+    package="com.ozh.bunchdecorator.example">
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity android:name="ru.ozh.recycler.decorator.MainActivityView">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="ru.ozh.recycler.decorator.list.LinearDecoratorActivityView">
+        <activity
+            android:name="ru.ozh.recycler.decorator.list.LinearDecoratorActivityView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="ru.ozh.recycler.decorator.list.SdkLinearDecoratorActivityView"
+            android:screenOrientation="portrait" />
 
-        </activity>
+        <activity
+            android:name="ru.ozh.recycler.decorator.chat.ChatActivityView"
+            android:screenOrientation="portrait" />
 
-        <activity android:name="ru.ozh.recycler.decorator.chat.ChatActivityView">
+        <activity
+            android:name="ru.ozh.recycler.decorator.pager.CarouselDecoratorActivityView"
+            android:screenOrientation="portrait" />
 
-        </activity>
-
-        <activity android:name="ru.ozh.recycler.decorator.pager.CarouselDecoratorActivityView">
-
-        </activity>
+        <activity
+            android:name="ru.ozh.recycler.decorator.timeline.TimeLineActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

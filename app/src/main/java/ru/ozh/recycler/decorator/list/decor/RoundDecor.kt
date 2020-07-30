@@ -1,20 +1,16 @@
 package ru.ozh.recycler.decorator.list.decor
 
 import android.graphics.Canvas
-import android.os.Build
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import ru.ozh.recycler.decorator.list.decor.round.RoundMode
 import ru.surfstudio.android.recycler.decorator.Decorator
-import ru.surfstudio.android.recycler.decorator.sample.list.decor.round.RoundMode
 import ru.surfstudio.android.recycler.decorator.sample.list.decor.round.RoundOutlineProvider
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-class RoundViewHoldersGroupDrawer(
+class RoundDecor(
     private val cornerRadius: Float,
-    private val roundPolitic: RoundPolitic = Every(RoundMode.ALL)
-)
-    : Decorator.ViewHolderDecor {
+    private val roundPolitic: RoundPolitic = RoundPolitic.Every(RoundMode.ALL)
+) : Decorator.ViewHolderDecor {
 
     override fun draw(
         canvas: Canvas,
@@ -40,7 +36,6 @@ class RoundViewHoldersGroupDrawer(
         }
     }
 
-
     private fun getRoundMode(
         previousChildViewHolder: RecyclerView.ViewHolder?,
         currentViewHolder: RecyclerView.ViewHolder?,
@@ -51,7 +46,7 @@ class RoundViewHoldersGroupDrawer(
         val currentHolderItemType = currentViewHolder?.itemViewType ?: UNDEFINE_VIEW_HOLDER
         val nextHolderItemType = nextChildViewHolder?.itemViewType ?: UNDEFINE_VIEW_HOLDER
 
-        if(roundPolitic is Every) return roundPolitic.roundMode
+        if(roundPolitic is RoundPolitic.Every) return roundPolitic.roundMode
 
         return when {
             previousHolderItemType != currentHolderItemType && currentHolderItemType != nextHolderItemType -> RoundMode.ALL
@@ -63,6 +58,7 @@ class RoundViewHoldersGroupDrawer(
     }
 }
 
-sealed class RoundPolitic
-class Every(val roundMode: RoundMode): RoundPolitic()
-class Group(): RoundPolitic()
+sealed class RoundPolitic {
+    class Every(val roundMode: RoundMode): RoundPolitic()
+    class Group(): RoundPolitic()
+}
