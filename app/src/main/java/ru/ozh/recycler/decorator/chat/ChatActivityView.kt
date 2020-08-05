@@ -30,7 +30,7 @@ class ChatActivityView : AppCompatActivity() {
     val decorator by lazy {
         Decorator.Builder()
             .underlay(CircleBarDecor())
-            .underlay(messageTimeController.viewType() to MessageTimeDecor(this))
+            .overlay(StickyHeaderDecor())
             .underlay(chatController.viewType() to ChatMessageDecor(this))
             .overlay(ScrollBarDecor())
             .offset(chatController.viewType() to ChatDecorOffset())
