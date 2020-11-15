@@ -17,4 +17,7 @@
     <color name="gray_A700">#A5A1A1</color>
     <color name="gray_A400">#8A8383</color>
 
+    <color name="black">#000000</color>
+    <color name="black_12">#1F000000</color>
+
 </resources>

@@ -8,4 +8,12 @@
 
     <dimen name="dp32">32dp</dimen>
     <dimen name="custom_animated_height">32</dimen>
+
+    <dimen name="page_indicator_inactive_width">8dp</dimen>
+    <dimen name="page_indicator_active_width">48dp</dimen>
+    <dimen name="page_indicator_padding_between">4dp</dimen>
+    <dimen name="page_indicator_height">4dp</dimen>
+    <dimen name="page_indicator_padding_bottom">0dp</dimen>
+    <dimen name="page_indicator_radius">0dp</dimen>
+    <dimen name="page_indicator_padding_horizontal">16dp</dimen>
 </resources>
