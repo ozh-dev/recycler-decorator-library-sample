@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ru.ozh.recycler.decorator.StubView
+        <ru.ozh.android.recycler.decorator.sample.StubView
             android:layout_width="56dp"
             android:layout_height="56dp"
             app:isCircle="true"
@@ -34,13 +34,13 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ru.ozh.recycler.decorator.StubView
+        <ru.ozh.android.recycler.decorator.sample.StubView
             android:layout_width="match_parent"
             android:layout_height="8dp"
             app:cornerRadius="8dp"
             app:stubColor="@color/gray_A150" />
 
-        <ru.ozh.recycler.decorator.StubView
+        <ru.ozh.android.recycler.decorator.sample.StubView
             android:layout_width="match_parent"
             android:layout_height="8dp"
             android:layout_marginTop="16dp"
