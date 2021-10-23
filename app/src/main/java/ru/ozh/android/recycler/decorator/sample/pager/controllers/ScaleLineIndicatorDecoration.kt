@@ -13,45 +13,47 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.ozh.android.recycler.decorator.sample.pager.controllers.IndicatorAlign.CENTER
-import ru.ozh.android.recycler.decorator.sample.pager.controllers.IndicatorAlign.LEFT
-import ru.ozh.android.recycler.decorator.sample.pager.controllers.IndicatorAlign.RIGHT
+import ru.ozh.android.recycler.decorator.sample.pager.controllers.IndicatorAlignHorizontal.CENTER
+import ru.ozh.android.recycler.decorator.sample.pager.controllers.IndicatorAlignHorizontal.LEFT
+import ru.ozh.android.recycler.decorator.sample.pager.controllers.IndicatorAlignHorizontal.RIGHT
 import kotlin.math.abs
 import ru.surfstudio.android.easyadapter.EasyAdapter
 import ru.ozh.android.recycler.decorator.lib.Decorator
 import ru.ozh.android.recycler.decorator.sample.R
+import ru.ozh.android.recycler.decorator.sample.pager.controllers.IndicatorAlignVertical.*
 
 const val MIN_SHOW_INDICATOR_VALUE = 1
 
 /**
- * Декоратор, который добавляет отрисовку индикатора текущего выбранного элемента.
- * Индикатор имеет вид линии, которая изменяет свою длину для активного и неактивного состояний
- * Можно использовать с ViewPager2 и RecyclerView с PagerSnapHelper
+ * Can use with ViewPager2 and RecyclerView with PagerSnapHelper
  *
- * @property context контекст
- * @property hasInfiniteScroll есть ли у вью бесконечный скролл
- * @property align выравнивание индикатора (слева/справа/по центру)
- * @param widthInactiveResource длина неактивного индикатора
- * @param widthActiveResource длина активного индикатора
- * @param paddingBetweenResource отступ между индикаторами
- * @param indicatorHeightResource высота индикатора
- * @param paddingHorizontalResource отступ индикаторов слева и справа
- * @param indicatorRadiusResource радиус индикаторов для отрисовки закругленных углов. Если ноль, будут отрисованы прямоугольные индикаторы
- * @param paddingBottomResource отступ индикаторов снизу от границ внутри(!) вью. По умолчанию индикатор рисуется поверх элементов ресайклер/вьюпейджер
- * Внимание, если необходимо, чтобы индикатор рисовался не поверх элементов, необходимо использовать офсет декоратор, а данный параметр оставить нулем!
- * @param colorActiveResource цвет активного индикатора
- * @param colorActiveResource цвет неактивного индикатора
+ * @property context [Context]
+ * @property hasInfiniteScroll use for infinite pager
+ * @property alignHorizontal horizontal align [IndicatorAlignHorizontal]
+ * @property alignVertical vertical align [IndicatorAlignVertical]
+ * @param widthInactiveResource width inactive indicator
+ * @param widthActiveResource width active indicator
+ * @param paddingBetweenResource offset between indicators
+ * @param indicatorHeightResource indicator's height
+ * @param paddingHorizontalResource horizontal padding
+ * @param indicatorRadiusResource indicator radius
+ * @param paddingBottomResource bottom padding
+ * @param paddingTopResource top padding
+ * @param colorActiveResource color of active indicator
+ * @param colorActiveResource color of inactive indicator
  */
 open class ScaleLinePageIndicatorDecoration(
     private val context: Context,
     private val hasInfiniteScroll: Boolean = false,
-    private val align: IndicatorAlign = LEFT,
+    private val alignHorizontal: IndicatorAlignHorizontal = LEFT,
+    private val alignVertical: IndicatorAlignVertical = BOTTOM,
     @DimenRes widthInactiveResource: Int = R.dimen.page_indicator_inactive_width,
     @DimenRes widthActiveResource: Int = R.dimen.page_indicator_active_width,
     @DimenRes paddingBetweenResource: Int = R.dimen.page_indicator_padding_between,
     @DimenRes indicatorHeightResource: Int = R.dimen.page_indicator_height,
     @DimenRes paddingHorizontalResource: Int = R.dimen.page_indicator_padding_horizontal,
     @DimenRes indicatorRadiusResource: Int = R.dimen.page_indicator_radius,
+    @DimenRes paddingTopResource: Int = R.dimen.page_indicator_padding_top,
     @DimenRes paddingBottomResource: Int = R.dimen.page_indicator_padding_bottom,
     @ColorRes colorActiveResource: Int = R.color.black,
     @ColorRes colorInactiveResource: Int = R.color.black_12
@@ -64,6 +66,7 @@ open class ScaleLinePageIndicatorDecoration(
     private val paddingBetween: Int = context.resources.getDimensionPixelSize(paddingBetweenResource)
     private val indicatorHeight: Int = context.resources.getDimensionPixelSize(indicatorHeightResource)
     private val indicatorRadius: Int = context.resources.getDimensionPixelSize(indicatorRadiusResource)
+    private val paddingTop: Int = context.resources.getDimensionPixelSize(paddingTopResource)
     private val paddingBottom: Int = context.resources.getDimensionPixelSize(paddingBottomResource)
     private val paddingHorizontal: Int = context.resources.getDimensionPixelSize(paddingHorizontalResource)
     private val indicatorDiff: Int = widthActive - widthInactive
@@ -113,13 +116,16 @@ open class ScaleLinePageIndicatorDecoration(
         val totalLength = widthInactive * (itemsCount - 1) + widthActive
         val paddingBetweenItems = (itemsCount - 1) * paddingBetween
         val indicatorTotalWidth = totalLength + paddingBetweenItems
-        val indicatorStartX = when (align) {
+        val indicatorStartX = when (alignHorizontal) {
             LEFT -> paddingHorizontal.toFloat()
             CENTER -> (recyclerView.width - indicatorTotalWidth) / 2f
             RIGHT -> recyclerView.width - indicatorTotalWidth - paddingHorizontal.toFloat()
         }
 
-        val indicatorPosY = recyclerView.height - paddingBottom.toFloat()
+        val indicatorPosY = when(alignVertical) {
+            TOP -> paddingTop + indicatorHeight
+            BOTTOM -> recyclerView.height - paddingBottom - indicatorHeight
+        }.toFloat()
 
         val layoutManager = recyclerView.layoutManager as LinearLayoutManager?
         val firstVisibleItemPosition = layoutManager?.findFirstVisibleItemPosition()
@@ -200,9 +206,10 @@ open class ScaleLinePageIndicatorDecoration(
     }
 }
 
-/**
- * Выравнивание индикаторов во вью
- */
-enum class IndicatorAlign {
+enum class IndicatorAlignHorizontal {
     LEFT, CENTER, RIGHT
+}
+
+enum class IndicatorAlignVertical {
+    TOP, BOTTOM
 }
