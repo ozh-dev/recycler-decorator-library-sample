@@ -1,5 +1,5 @@
 
-### [RecyclerView.ItemDecoration: Making the Most of It](https://todo)
+### [RecyclerView.ItemDecoration: Making the Most of It](https://medium.com/surfstudio/recyclerview-itemdecoration-making-the-most-of-it-41d34f74c948)
 ### [RecyclerView.ItemDecoration: используем по максимуму](https://habr.com/ru/company/surfstudio/blog/513038/)
 
 
